@@ -1,17 +1,22 @@
 "use strict";
 
 window.onload = function(){
-
+    var str;
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
 	
+   
+    var res = str.replace(/A/gi,"#");
+    console.log(res);
+    
+	var lowstr = str.replace(/[A-Z]/g, '');
 
-
-
-
+    for (var i = 0; i < str.length; i++) {
+        lowstr.toUpperCase();
+    }
 
 
 	};

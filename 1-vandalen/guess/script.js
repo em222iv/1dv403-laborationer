@@ -4,28 +4,29 @@ window.onload = function(){
 	
 	var myNumber = Math.floor( Math.random() * 99)+1; // Detta tal behöver bytas ut mot ett slumpat tal.
 	// I denna funktion ska du skriva koden för att hantera "spelet"
+	var tries = 10;
 	var guess = function(number)
 	{
 		/*console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.*/
-		
-        var tries = 7;
-        while (tries < 0) 
-        {   
-            tries--;
-            if (number < myNumber)
-            {
-                return [false, "Det hemliga talet är högre! Du har " + tries + ' chanser kvar'];
-            }
-            if (number > myNumber)
-            {
-                return [false, "Det hemliga talet är lägre! Du har " + tries + ' chanser kvar'];
-            }
-            if (number === myNumber)
-            {  
-                return [true, "Grattis du vann! Det hemliga talet var" + myNumber + " och du hade" + tries + "gissningar kvar för att hitta det."];
-            }
+
+        tries--;
+        if(tries <= 0){
+            return [false, "Du har inga chanser kvar"];
         }
+        
+        if (number < myNumber){
+            return [false, "Det hemliga talet är högre! Du har " + tries + ' chanser kvar'];
+        }
+        if (number > myNumber)
+        {
+            return [false, "Det hemliga talet är lägre! Du har " + tries + ' chanser kvar'];
+        }
+        if (number == myNumber)
+        {  
+            return [true, "Grattis du vann! Det hemliga talet var " + myNumber + " och du hade " + tries + " gissningar kvar för att hitta det."];
+        }
+        
 		// Plats för förändring.
 
 

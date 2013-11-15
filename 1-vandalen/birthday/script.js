@@ -2,15 +2,18 @@
 
 window.onload = function(){
 
-	
 	var birthday = function(date){
-		
+	var CurrentTime = new Date();
+	var theday = new Date(2014, 1, 18, 12, 0, 0);
+    
+     //var month = the day CurrentTime.getMonth;
+    var months = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24*30));
+    var years = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24*30*12));
+    var days = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24));
 
-
-			// Din kod här.
-
-
-
+    
+   console.log('Det är '+ years +' år, '+ months +' månader, och '+ days +' dagar kvar');
+    
 
 	};
 	// ------------------------------------------------------------------------------
@@ -28,7 +31,7 @@ window.onload = function(){
 		p.classList.remove( "error");
 
 		try {
-			var answer = birthday(input.value) // Läser in texten från textrutan och skickar till funktionen "convertString"
+			var answer = birthday(input.value); // Läser in texten från textrutan och skickar till funktionen "convertString"
 			var message;
 			switch (answer){
 				case 0: message = "Grattis på födelsedagen!";
