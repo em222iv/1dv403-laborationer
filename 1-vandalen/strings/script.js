@@ -31,8 +31,8 @@ window.onload = function(){
         sconvert += sArray[u];
     }
    
-   var r = sconvert.replace(/A/gi,"#");
-   return r;
+   var convertedString = sconvert.replace(/A/gi,"#");
+   return convertedString;
    
     /*console.log(res);
     

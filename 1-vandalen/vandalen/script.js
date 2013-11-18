@@ -1,9 +1,12 @@
 "use strict";
 
 var makePerson = function(persArr){
-
-
-	// Din kod här...
-
-}
+    
+    
+	var names;
+	var minAge;
+	var maxAge;
+	var averageAge;
+    
+};
 
