@@ -2,21 +2,28 @@
 
 window.onload = function(){
     var birthday = function(date){
-        
-    //var dateArray = date.split('-');
-    var CurrentTime = new Date();
-
-    var dt = new Date(date.replace(/(\d{2})\-(\d{2})\-(\d{4})/));
     
-    
-    var days = ((dt - CurrentTime.getTime())/(1000*60*60*24));
-    
-    var rdays = Math.ceil(days);
-    if(days <= -1)
-    {
-        throw {message: 'Du kan inte ange ett datum som redan vart'};
+    //matchar arguementet med date, skiljer det sig kastas felmed.
+    if (!date.match(/(\d{4})\-(\d{2})\-(\d{2})/)) {
+        throw {message: "wrong format"};
     }
-    return rdays;
+
+    var CurrentTime = new Date();
+    //delar arayens element mellan -
+    var array = date.split('-');
+    
+    //skapar ett date med det rätta formatet YYYY-MM-DD
+    var birthdayArray = new Date(array[0], array[1] - 1, array[2]);
+    //konverterar allt till dagar och subtraherar millisekuderna
+    var days = ((birthdayArray.getTime() - CurrentTime.getTime())/(1000*60*60*24));
+    //ceil avrundar alla decimaler till övre heltalet
+    var remainingDays = Math.ceil(days);
+    //man kan inte ange tidigare datum
+    if(remainingDays < 0)
+    {
+        throw {message: 'Du kan inte ange ett datum som redan varit'};
+    }
+    return remainingDays;
     
 	};
 	// ------------------------------------------------------------------------------
