@@ -1,20 +1,23 @@
 "use strict";
 
 window.onload = function(){
+    var birthday = function(date){
+        
+    //var dateArray = date.split('-');
+    var CurrentTime = new Date();
 
-	var birthday = function(date){
-	var CurrentTime = new Date();
-	var theday = new Date(2014, 1, 18, 12, 0, 0);
+    var dt = new Date(date.replace(/(\d{2})\-(\d{2})\-(\d{4})/));
     
-     //var month = the day CurrentTime.getMonth;
-    var months = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24*30));
-    var years = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24*30*12));
-    var days = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24));
-
     
-   console.log('Det är '+ years +' år, '+ months +' månader, och '+ days +' dagar kvar');
+    var days = ((dt - CurrentTime.getTime())/(1000*60*60*24));
     
-
+    var rdays = Math.ceil(days);
+    if(days <= -1)
+    {
+        throw {message: 'Du kan inte ange ett datum som redan vart'};
+    }
+    return rdays;
+    
 	};
 	// ------------------------------------------------------------------------------
 
@@ -49,7 +52,17 @@ window.onload = function(){
 		}
 	
 	});
-
+    //var month = the day CurrentTime.getMonth;
+    //var months = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24*30)) % 12;
+    //var years = ((theday.getTime() - CurrentTime.getTime())/(1000*60*60*24*30*12));
+        /*if(years < 1)
+    { 
+    console.log('Det är '+ months.toFixed(0) +' månader, och '+ days.toFixed(0) +' dagar kvar');
+    }
+    else
+    {
+    console.log('Det är '+ years.toFixed(0) +' år, '+ months.toFixed(0) +' månader, och '+ days.toFixed(0) +' dagar kvar');
+    }*/
 
 
 };

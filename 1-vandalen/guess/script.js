@@ -50,8 +50,9 @@ window.onload = function(){
 	submit.addEventListener("click", function(e){
 		e.preventDefault(); // Hindra formuläret från att skickas till servern. Vi hanterar allt på klienten.
 
-		var answer = guess(input.value); // Läser in talet från textrutan och skickar till funktionen "guess"
-		p.innerHTML = answer[1];		// Skriver ut texten från arrayen som skapats i funktionen.	
+	var answer = guess(input.value); // Läser in talet från textrutan och skickar till funktionen "guess"
+    p.innerHTML = answer[1]; // Skriver ut texten från arrayen som skapats i funktionen.	
+	input.value="";
 
 		if(answer[0] === true){				// Om spelet är slut, avaktivera knappen.
 			submit.disabled = true;

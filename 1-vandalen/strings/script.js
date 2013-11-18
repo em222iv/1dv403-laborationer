@@ -1,25 +1,53 @@
 "use strict";
 
 window.onload = function(){
-    var str;
 	// I denna funktion ska du skriva koden för att hantera "spelet"
 	var convertString = function(str){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
 	
-   
-    var res = str.replace(/A/gi,"#");
-    console.log(res);
+	if(str === "")
+	{
+	throw {message: 'Det här stämde ju inte riktigt'};
+	}
+	
+	var sArray = [],
+    sconvert = "";
     
-	var lowstr = str.replace(/[A-Z]/g, '');
-
     for (var i = 0; i < str.length; i++) {
-        lowstr.toUpperCase();
+        if (str[i].match(/([A-ZÅÄÖ])/g)) {
+            //Hittar alla stora bokstäver i strängen och gör om dem till små och placerar dem i en variabel
+            sArray[i] = str[i].replace(/([A-ZÅÄÖ])/g, str[i].toLowerCase());
+        }
+        else{
+            //Hittar alla små bokstäver och gör om dem till stora och placerar dem i en variabel
+            sArray[i] = str[i].replace(/([a-zåäö])/g, str[i].toUpperCase());
+        }
     }
 
+    for (var u = 0; u < sArray.length; u++) {
+        //Gör om hela arrayen (sArray) och till en enda sträng
+        sconvert += sArray[u];
+    }
+   
+   var r = sconvert.replace(/A/gi,"#");
+   return r;
+   
+    /*console.log(res);
+    
+	var upperCase = str.replace(/[A-Z]/g, '');
+    console.log(upperCase);
+    
+    for (var i = 0; i < res.length; i++) {
+        upperCase.toLowerCase();
+    }
+    
+*/
+    };
 
-	};
+
+
 	// ------------------------------------------------------------------------------
 
 
