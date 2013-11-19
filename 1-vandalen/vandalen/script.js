@@ -13,10 +13,18 @@ var makePerson = function(persArr){
     personNames = persArr.map(function(personName){
         return personName.name;
     });
-    
+
     personObj.names = personNames.sort(function(a, b){
         return a.localeCompare(b)});
+
+
+    personObj.names = personNames.reduce(function(prevName, name, i, personNames){
+        return prevName + ", " + name;
+    });
+
+    console.log(personNames);
     
+
     //personObj.names = personNames;
     
     //Skapar en array som tar ut alla age från persArr arrayen
