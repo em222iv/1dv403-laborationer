@@ -10,6 +10,9 @@ window.onload = function(){
 
     var CurrentTime = new Date();
     //delar arayens element mellan -
+    
+    CurrentTime.setFullYear(2013);
+    //anger födelseår som detta året
     var array = date.split('-');
     
     //skapar ett date med det rätta formatet YYYY-MM-DD
@@ -20,8 +23,8 @@ window.onload = function(){
     var remainingDays = Math.ceil(days);
     //man kan inte ange tidigare datum
     if(remainingDays < 0)
-    {
-        throw {message: 'Du kan inte ange ett datum som redan varit'};
+    {//lägger till 365 dagar för att få fram hur många dagar det är till din födelseldag kommande år 
+        return 365 + remainingDays;
     }
     return remainingDays;
     

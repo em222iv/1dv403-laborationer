@@ -6,7 +6,7 @@ window.onload = function(){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+	// 
 	if(str === "")
 	{
 	throw {message: 'Det här stämde ju inte riktigt'};
@@ -14,7 +14,7 @@ window.onload = function(){
 	
 	var sArray = [],
     sconvert = "";
-    
+    //matchar str index med alla stora bokstäver
     for (var i = 0; i < str.length; i++) {
         if (str[i].match(/([A-ZÅÄÖ])/g)) {
             //Hittar alla stora bokstäver i strängen och gör om dem till små och placerar dem i en variabel
@@ -25,12 +25,12 @@ window.onload = function(){
             sArray[i] = str[i].replace(/([a-zåäö])/g, str[i].toUpperCase());
         }
     }
-
+    
     for (var u = 0; u < sArray.length; u++) {
         //Gör om hela arrayen (sArray) och till en enda sträng
         sconvert += sArray[u];
     }
-   
+   //convertedString = sconvert strängen med alla a/A utbytta till #
    var convertedString = sconvert.replace(/A/gi,"#");
    return convertedString;
    

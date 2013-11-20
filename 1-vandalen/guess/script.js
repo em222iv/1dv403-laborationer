@@ -9,12 +9,14 @@ window.onload = function(){
 	{
 		/*console.log("Det hemliga talet: " + secret); // Du når den yttre variabeln secret innifrån funktionen.
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.*/
-
+        //räknar ner dina 10 gissningar
         tries--;
+        
+        // tar dina försök slut så returnar false
         if(tries <= 0){
             return [false, "Du har inga chanser kvar"];
         }
-        
+        /
         if (number < myNumber){
             return [false, "Det hemliga talet är högre! Du har " + tries + ' chanser kvar'];
         }
