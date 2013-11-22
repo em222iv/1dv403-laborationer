@@ -9,7 +9,7 @@ window.onload = function(){
 	// 
 	if(str === "")
 	{
-	throw {message: 'Det här stämde ju inte riktigt'};
+	throw {message: 'Skriv något i för konvertering'};
 	}
 	
 	var sArray = [],
@@ -25,7 +25,6 @@ window.onload = function(){
             sArray[i] = str[i].replace(/([a-zåäö])/g, str[i].toUpperCase());
         }
     }
-    
     for (var u = 0; u < sArray.length; u++) {
         //Gör om hela arrayen (sArray) och till en enda sträng
         sconvert += sArray[u];
@@ -71,7 +70,5 @@ window.onload = function(){
 		}
 	
 	});
-
-
 
 };

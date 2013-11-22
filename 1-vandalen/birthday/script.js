@@ -3,32 +3,27 @@
 window.onload = function(){
     var birthday = function(date){
     
-    //matchar arguementet med date, skiljer det sig kastas felmed.
-    if (!date.match(/(\d{4})\-(\d{2})\-(\d{2})/)) {
-        throw {message: "wrong format"};
-    }
-
-    var CurrentTime = new Date();
+	var CurrentTime = new Date();
     //delar arayens element mellan -
-    
-    CurrentTime.setFullYear(2013);
-    //anger födelseår som detta året
     var array = date.split('-');
     
-    //skapar ett date med det rätta formatet YYYY-MM-DD
-    var birthdayArray = new Date(array[0], array[1] - 1, array[2]);
+    //skapar ett date med det rätta formatet
+    var birthdayArray = new Date(CurrentTime.getFullYear(), array[1] - 1, array[2]);
+    
+    if(birthdayArray.getTime() < CurrentTime.getTime() && birthdayArray.getDate() !== 
+     CurrentTime.getDate())
+    {
+        birthdayArray.setFullYear(birthdayArray.getFullYear() + 1);
+    }
     //konverterar allt till dagar och subtraherar millisekuderna
     var days = ((birthdayArray.getTime() - CurrentTime.getTime())/(1000*60*60*24));
     //ceil avrundar alla decimaler till övre heltalet
     var remainingDays = Math.ceil(days);
     //man kan inte ange tidigare datum
-    if(remainingDays < 0)
-    {//lägger till 365 dagar för att få fram hur många dagar det är till din födelseldag kommande år 
-        return 365 + remainingDays;
-    }
+   
     return remainingDays;
     
-	};
+    };
 	// ------------------------------------------------------------------------------
 
 

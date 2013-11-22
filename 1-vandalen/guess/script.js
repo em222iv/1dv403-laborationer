@@ -11,12 +11,16 @@ window.onload = function(){
 		console.log("Du gissade: " + number); // Detta nummer är det som användaren gissade på.*/
         //räknar ner dina 10 gissningar
         tries--;
-        
+            
+        if(number < 0 || number > 100)
+        {
+            return [false, "ange ett number mellan 1-100.  Du har  " + tries + " chanser kvar"]
+        }
         // tar dina försök slut så returnar false
         if(tries <= 0){
             return [false, "Du har inga chanser kvar"];
         }
-        /
+        
         if (number < myNumber){
             return [false, "Det hemliga talet är högre! Du har " + tries + ' chanser kvar'];
         }
