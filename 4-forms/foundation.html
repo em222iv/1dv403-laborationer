@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <meta charset="utf-8">
+    <head>
+    <link rel="stylesheet" type="text/css" href="foundation.css">
+    <script src="form.js"></script>
+    </head>
+
+<form  name="formname" id="formname" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" method="post" onsubmit="return(Validator.check())">
+  <div class="row">
+    <div class="large-4 columns">
+      <label>Förnamn:   </label>
+      <input type="text" name="name" value="name" class="emptyName" />
+    </div>
+    <body></body>
+    <div class="large-4 columns">
+      <label>Efternamn:   </label>
+      <input type="text" name="surname" value="surname" class="emptyName" />
+    </div>
+   <div class="large-4 columns">
+      <label>Postnummer</label>
+      <input type="text" name="postalcode" value="postalcode" class="emptyPostCode" />
+    </div>
+    <div class="large-4 columns">
+      <label>E-post</label>
+      <input type="text" name="email" value="email" class="emptyMail" />
+    </div>
+    <div class="row">
+    <div class="large-7 columns">
+      <label>Select Box</label>
+      <select>
+        <option value="husker">Husker</option>
+        <option value="starbuck">Starbuck</option>
+        <option value="hotdog">Hot Dog</option>
+        <option value="apollo">Apollo</option>
+      </select>
+    </div>
+  </div>
+   <input type="submit" value="Send me your info!">
+ <!-- </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Select Box</label>
+      <select>
+        <option value="husker">Husker</option>
+        <option value="starbuck">Starbuck</option>
+        <option value="hotdog">Hot Dog</option>
+        <option value="apollo">Apollo</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Choose Your Favorite</label>
+      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
+      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
+    </div>
+    <div class="large-6 columns">
+      <label>Check these out</label>
+      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Textarea Label</label>
+      <textarea placeholder="small-12.columns"></textarea>
+    </div>
+  </div>-->
+</form>
+</html>

@@ -1,0 +1,40 @@
+#body {
+    background-color: #C0C0C0;
+    }
+#container {
+    background-color: #C0C0C0;
+    max-width: 624px;
+    max-height: 600px;
+    margin:auto;
+    border: 1px solid black;
+    overflow:scroll;
+}
+p {
+    margin:auto;
+    background-color: #FFF;
+    border-bottom: 2px solid black;
+    border-right: 4px solid black;
+    width: 400px;
+    box-shadow: 10px 10px 5px #888;
+    border-radius: 2px;
+}
+h4{
+    text-align: right;
+    width: 400px;
+    margin-top: -19px;
+}
+h1{
+    text-align: center;
+    }
+
+img {
+    float:right;
+}
+#counter {
+    border: 1px solid black;
+    width:100px;
+    margin:auto;
+}
+
+
+
