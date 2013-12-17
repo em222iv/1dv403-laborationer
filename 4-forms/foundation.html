@@ -10,23 +10,23 @@
     <div class="row">
         <div class="large-4 columns">
             <label>Förnamn:   </label>
-            <input type="text" id="name" name="name" value="name" class="empty"/>
-            <message id="errormessage"></message>
+            <input type="text" id="name" name="name" class="empty"/>
+            <div id="errormessage"></div>
         </div>
         <div class="large-4 columns">
             <label>Efternamn:   </label>
-            <input type="text" id="surname" name="surname" value="surname" class="empty"/>
-            <message id="errormessage1"></message>
+            <input type="text" id="surname" name="surname" class="empty"/>
+            <div id="errormessage1"></div>
         </div>
         <div class="large-4 columns">
             <label>Postnummer</label>
-            <input type="text" id="postalcode" name="postalcode" value="postalcode" class="empty" />
-            <message id="errormessage2"></message>
+            <input type="text" id="postalcode" name="postalcode" class="empty" />
+            <div id="errormessage2"></div>
         </div>
         <div class="large-4 columns">
             <label>E-post</label>
-            <input type="text" id="email" name="email" value="email" class="empty" />
-            <message id="errormessage3"></message>
+            <input type="text" id="email" name="email" class="empty" />
+            <div id="errormessage3"></div>
         </div>
     <div class="row">
         <div class="large-7 columns">
@@ -38,6 +38,8 @@
       </select>
     </div>
   </div>
-  <button type="submit" value="Send!" onsubmit="">Click me</button>
+  <div class="button-field large-12 columns">
+  <a href="#" id="button" class="button success">Genomför köp</a>
+  </div>
 </form>
 </html>
