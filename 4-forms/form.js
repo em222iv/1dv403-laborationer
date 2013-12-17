@@ -2,7 +2,7 @@
 
     var Validator = {
     
-     nameCheck: function() {
+     /*nameCheck: function() {
         
         var inputCheck = document.getElementsByClassName("emptyName");
         
@@ -12,7 +12,7 @@
                 console.log('hej');
             };
         }
-     },
+     },*/
     
     
     check: function() {
@@ -57,5 +57,5 @@
     //<small class="error">Ange en giltig e-mail adress.</small>
     };
 window.onload = function() {
-    Validator.nameCheck();
+    Validator.check();
 };

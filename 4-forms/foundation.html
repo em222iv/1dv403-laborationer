@@ -3,27 +3,27 @@
     <meta charset="utf-8">
     <head>
     <link rel="stylesheet" type="text/css" href="foundation.css">
-    <script src="form.js"></script>
+    <script src="form1.js"></script>
     </head>
 
-<form name="formname" id="formname" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" method="post" onsubmit="return(Validator.check())">
+<form name="formname" id="formname" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" method="post" onsubmit="return(Validator.Names())">
   <div class="row">
     <div class="large-4 columns">
       <label>Förnamn:   </label>
-      <input type="text" name="name" value="name" class="emptyName" />
+      <input type="text" id="name" name="name" value="name" class="empty" onblur="blurred()"/>
     </div>
     <body></body>
     <div class="large-4 columns">
       <label>Efternamn:   </label>
-      <input type="text" name="surname" value="surname" class="emptyName" />
+      <input type="text" name="surname" value="surname" id="surname" class="empty" onblur="blurred1()"/>
     </div>
    <div class="large-4 columns">
       <label>Postnummer</label>
-      <input type="text" name="postalcode" value="postalcode" class="emptyPostCode" />
+      <input type="text" name="postalcode" value="postalcode" class="empty" />
     </div>
     <div class="large-4 columns">
       <label>E-post</label>
-      <input type="text" name="email" value="email" class="emptyMail" />
+      <input type="text" name="email" value="email" class="empty" />
     </div>
     <div class="row">
     <div class="large-7 columns">
@@ -36,7 +36,7 @@
       </select>
     </div>
   </div>
-   <input type="submit" value="Send me your info!">
+   <input type="submit" value="Send!">
  <!-- </div>
   <div class="row">
     <div class="large-12 columns">
