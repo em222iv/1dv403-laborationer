@@ -3,8 +3,7 @@
     var Validator = {
  
         validation : function() {
-    
-        var fails = false;
+        
         
         var nameCheck=document.getElementById("name");
         nameCheck.onblur = function() {
@@ -19,7 +18,7 @@
             
            // Validator.blurred.errorMessage.parentNode.removeChild(Validator.blurred.errorMessage);
             
-        }
+        };
         
         var surNameCheck=document.getElementById("surname");
         surNameCheck.onblur = function(){
@@ -32,22 +31,34 @@
                 errormessage1.appendChild(errorMessage1);
                 return false;
             }
-        }
+        };
 
-        
-            var postCodeCheck=document.getElementById("postalcode");
-            postCodeCheck.onblur = function() {
+        var postCodeCheck=document.getElementById("postalcode");
+        postCodeCheck.onblur = function() {
             
-                if(!postCodeCheck.value.match(/^\d{3} \d{2}$/) ||postCodeCheck.value === null || postCodeCheck.value === "") {
-                    
-                    var errormessage2=document.getElementById("errormessage2");
-                    var errorMessage2=document.createTextNode("FEL! skriv din postkod");
-                    errormessage2.appendChild(errorMessage2);
-                    return false;
-                }
+            var post = postCodeCheck.value.replace(/[^0-9]/g,"");
+            var reg = /^\d{5}$/;
+            
+            if(reg.test(post) === true) {
+                postCodeCheck.value = post;
+            }
+            else if(reg.test(post) === false) {
+    
+            console.log(reg.test(post));
+               // post = postCodeCheck.replace("SE","");
+                //postCodeCheck = postCodeCheck.replace(" ", "");
+                
+                //(/^\d{3}\d{2}$/) || postCodeCheck.value.match(/^[SE]+\d{5}$/)|| postCodeCheck.value.match(/^[SE]+\d{5}$/)
+        
+            var errormessage2=document.getElementById("errormessage2");
+            var errorMessage2=document.createTextNode("FEL! skriv din postkod");
+            errormessage2.appendChild(errorMessage2);
+            return false;
         }
+    };
+    
         
-        
+            
             var emailCheck=document.getElementById("email");
             emailCheck.onblur = function() {
             
@@ -58,14 +69,14 @@
                     errormessage3.appendChild(errorMessage3);
                    
                     return false;
-                }        
-        }
+                }   
+        };
         
         
         var formbutton = document.getElementById("formname");
         formbutton.onsubmit = function(){
-    
-        }
+        
+        };
     }
 };
 
