@@ -3,7 +3,16 @@
     var Validator = {
         exist: null,
         errorArray:  null,
-     
+        
+        init: function()  {
+          var form = document.getElementById("formname");
+          form.onsubmit = function(e) {
+              e.preventDefault();
+          };
+            Validator.validation();
+            Validator.onsubmit();
+        },
+        
         validation : function() {
         
         var nameCheck=document.getElementById("name");
@@ -16,7 +25,7 @@
                     var p = document.createElement("p");
                     var errorMessage=document.createTextNode("FEL! skriv ditt namn");
                     p.id = "error";
-                    p.className = "empty"
+                    p.className = "empty";
                     p.appendChild(errorMessage);
                     errormessage.appendChild(p);
                     this.exist = true;
@@ -148,14 +157,11 @@
             divbutton.setAttribute("id", "myModal");
             divbutton.setAttribute("class", "reveal-modal");
             
-            divbutton.style.visibility = "visible";
-            divbutton.style.display = "block";
-        
-            popupButton.appendChild(buttonText);
-            popupCancelButton.appendChild(buttonCancelText);
+            var popupclass = divbutton.className;
+            divbutton.setAttribute("class", popupclass+" displayshow");
             
-        var table = document.createElement("table");
-        var tagName = document.getElementsByTagName("input");
+            var table = document.createElement("table");
+            var tagName = document.getElementsByTagName("input");
         
         
         for (var i = 0; i < tagName.length; i++) {
@@ -195,6 +201,9 @@
   
         main.appendChild(divbutton);
         main.insertBefore(dim, main.firstChild);
+        
+          popupButton.appendChild(buttonText);
+            popupCancelButton.appendChild(buttonCancelText);
     
         popupButton.addEventListener("click", function() {
            document.getElementById("formname").submit();
@@ -202,6 +211,9 @@
         }, false);
         
         popupCancelButton.addEventListener("click", function() {
+            var popupclass = divbutton.className;
+            popupclass = popupclass.split(' ');
+            divbutton.setAttribute("class", popupclass[0]+"displaynone");
             divbutton.parentNode.removeChild(divbutton);
             dim.parentNode.removeChild(dim);
            
@@ -209,7 +221,7 @@
 
         },
         dim: function() {
-            document.getElementById("button").style.display="block";
+            document.getElementById("button");
         },
         onsubmit : function(){
         
@@ -228,7 +240,7 @@
     };
 
 window.onload = function() {
-  Validator.validation();
-  Validator.onsubmit();
+    Validator.init();
+  
     
 };
