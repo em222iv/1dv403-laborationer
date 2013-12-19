@@ -10,7 +10,7 @@
               e.preventDefault();
           };
             Validator.validation();
-            Validator.onsubmit();
+            this.submit1();
         },
         
         validation : function() {
@@ -216,6 +216,7 @@
             divbutton.setAttribute("class", popupclass[0]+"displaynone");
             divbutton.parentNode.removeChild(divbutton);
             dim.parentNode.removeChild(dim);
+            Validator.onbutton.disable = true;
            
         }, false);
 
@@ -223,7 +224,7 @@
         dim: function() {
             document.getElementById("button");
         },
-        onsubmit : function(){
+        submit1 : function(){
         
             var that = this;
             var button = document.getElementById("button");
@@ -233,6 +234,7 @@
                 if(that.errorArray.length === 0){
                     that.onbutton();
                     that.dim();
+                    
                 }
                 
             },false);
