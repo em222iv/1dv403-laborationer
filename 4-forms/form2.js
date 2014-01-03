@@ -39,7 +39,6 @@
             }
         };
         
-            
         var surNameCheck=document.getElementById("surname");
         surNameCheck.onblur = function(){
             
@@ -115,7 +114,7 @@
                 if(!this.exist){
                     var p = document.createElement("p");
                     
-                    var errorMessage3=document.createTextNode("FEL! skriv ditt postnummer");
+                    var errorMessage3=document.createTextNode("FEL! skriv din e-mailadress");
                     p.id = "error3";
                     p.className = "empty"
                     p.appendChild(errorMessage3);

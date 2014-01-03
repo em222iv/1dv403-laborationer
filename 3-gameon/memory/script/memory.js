@@ -71,8 +71,6 @@ flipCard : function(Card) {
 };
 window.onload = function(){
     Memory.init(4,4);
+    Memory.init(4,4);
+    Memory.init(4,4);
 };
-
-
-
-
