@@ -46,20 +46,35 @@ html {
     background-color: black;
 }
 
-.popup {
+.popupWindow {
     border-radius: 4px;
     border: 2px solid #C0C0C0;
     width: 220px;
     height: 400px;
     background-color: white;
     float:left;
-    position:relative;
+    position: relative;
     top:100px;
- 
+
 }
-.bottom {
- float:left;
+.windowHeader{
+    border: 1px solid black;
+    width: 100px !important;
+   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
