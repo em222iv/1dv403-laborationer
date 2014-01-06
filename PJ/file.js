@@ -1,10 +1,11 @@
 "use strict";
 
-
+    
     var memory = {
    
-                       
+    count: 0,
     popupWindow: function() { 
+        var that = this;
         var body = document.getElementById("body");
         var popup = document.createElement("div");
         var header = document.createElement("popupHeader");
@@ -28,15 +29,19 @@
         
         cancelButton.onclick = function() { 
             popup.parentNode.removeChild(popup);
+            that.count = 0;
             };
-
         }, 
-            
             
    clickButton: function() {
             var that = this;
+            
             var Memory = document.getElementById("memory");
             Memory.addEventListener("click", function() {
+                if (that.count !== 0) {
+                    return;
+                }
+                that.count++;
                     that.popupWindow();
             },false);
         }
