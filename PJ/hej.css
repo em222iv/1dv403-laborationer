@@ -1,10 +1,11 @@
+html {
+    background-color: black;
+}
 #main {
     background-image:url('img/background.jpg');
     height:900px;
     width:100%;
-    position:relative;
     z-index:0;
-    overflow:scroll;
 
 }
 #menu {
@@ -17,50 +18,84 @@
     background: rgba(61, 62, 61, 0.4);
     color: rgba(61, 62, 61, 0.4);
     box-shadow: 0 10px 10px  rgba(42, 52, 24, 0.2);
-    position:relative;
     z-index:0;
 }
 
-#menu > div > #memory {
+#menu > div > #gallery {
 
     margin-left: 35%;
     margin-top: 8px;
-    position:absolute;
+    position: absolute;
     z-index:1;
 }
 #menu > div > #rss {
 
     margin-left: 45%;
     margin-top: 8px;
-    position:absolute;
+    position: absolute;
     z-index:1;
 }
 #menu > div > #eye {
 
     margin-left: 55%;
     margin-top: 8px;
-    position:absolute;
+    position: absolute;
     z-index:1;
-}
-html {
-    background-color: black;
 }
 
 .popupWindow {
-    border-radius: 4px;
+    border-radius: 10px;
     border: 2px solid #C0C0C0;
-    width: 220px;
+    width: 350px;
     height: 400px;
-    background-color: white;
+    background-image:url('img/popuppic.jpg');
+    top:150px;
     float:left;
-    position: relative;
-    top:100px;
-
+    margin-left:200px;
+    overflow:auto;
+ 
 }
-.windowHeader{
-    border: 1px solid black;
-    width: 100px !important;
-   
+.popupWindow:hover {
+    box-shadow: 3px 0 20px 5px rgba(30, 20, 24, 0.6);
+}
+popupHeader {
+    background-color: rgba(100, 81, 60, 0.7);
+    width:100%;
+    height:25px;
+    float:left;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    margin-bottom: 10px;
+}
+popupFooter {
+    background-color: rgba(100, 81, 60, 0.7);
+    width:100%;
+    height:25px;
+    margin-top:340px;
+    float:left;
+    border-radius: 10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    position:relative;
+}
+button {
+    z-index:0;
+    float:left;
+    background-image:url('img/eye.jpg');
+    width:15px; 
+    height:15px;
+    margin: 5px;
+}
+.scroll {
+    overflow:auto;
+    
+}
+.thumbImg {
+   margin:10px;
+  
+}
+.thumbImgDiv {
+
 }
 
 
