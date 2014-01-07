@@ -61,7 +61,7 @@ html {
 popupHeader {
     background-color: rgba(100, 81, 60, 0.7);
     width:100%;
-    height:25px;
+    height:30px;
     float:left;
     border-top-left-radius:10px;
     border-top-right-radius:10px;
@@ -84,19 +84,32 @@ button {
     background-image:url('img/eye.jpg');
     width:15px; 
     height:15px;
-    margin: 5px;
+    margin: 8px;
 }
+button:hover {
+   cursor: pointer;
+}
+.resetBackground {
+    display:block;
+    background-image:url('img/eye.jpg');
+    z-index:0;
+    float:right;
+    margin: 5px;
+ 
+}
+.resetBackground:hover {
+ color: red;
+ cursor: pointer;
+}
+
 .scroll {
     overflow:auto;
     
 }
 .thumbImg {
    margin:10px;
-  
 }
-.thumbImgDiv {
 
-}
 
 
 
