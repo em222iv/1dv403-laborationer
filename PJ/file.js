@@ -10,7 +10,9 @@
         var header = document.createElement("popupHeader");
         var footer = document.createElement("popupFooter");
         var cancelButton = document.createElement("button");
-        var resetBackground = document.createElement("resetButton")
+        var resetBackground = document.createElement("resetButton");
+        var resetBackgroundCount = 1;
+        
      
         var counter = 0;
         var resetBackgroundText = document.createTextNode("Reset background");
@@ -22,28 +24,48 @@
         cancelButton.setAttribute("click");
         resetBackground.setAttribute("click");
       
+        
+       
+           footer.style.backgroundImage = "url('img/ajax-loader.gif')";
+        
+  
         var xhr = new XMLHttpRequest();
-        var thumboImgContainer = document.createElement("div");
-        thumboImgContainer.className = "thumbImg";
+        var thumbImgContainer = document.createElement("div");
+        thumbImgContainer.className = "thumbImg";
         xhr.onreadystatechange = function() {
             if(xhr.readyState === 4) {
                 if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
                     console.log(xhr.responseText);
-            
+                   
                     var jsonImageReciever = JSON.parse(xhr.responseText);
-             
+                    var imgWidth;
+                    var imgHeight;
                     for (var i = 0; i < jsonImageReciever.length; i++) {
+                    
+                        /*var imgHeight = Math.max(jsonImageReciever[i].thumbHeight);
+                        console.log(imgWidth, imgHeight);*/
                         
-                        var imgWidth = Math.max(jsonImageReciever[i].thumbWidth);
-                        var imgHeight = Math.max(jsonImageReciever[i].thumbHeight);
-                        console.log(imgWidth, imgHeight);
+                        if(jsonImageReciever[i].thumbWidth > 1 || jsonImageReciever[i].thumbWidth < 1000){
+                         that.imgWidth = Math.max(jsonImageReciever[i].thumbWidth);
+                        }
+                        if(jsonImageReciever[i].thumbHeight > 1 || jsonImageReciever[i].thumbHeight < 1000){
+                         that.imgHeight = Math.max(jsonImageReciever[i].thumbHeight);
+                        }
+                        console.log(that.imgWidth, that.imgHeight);
+
                         var thumbImg = document.createElement("img");
-                        
                         thumbImg.setAttribute("src", jsonImageReciever[i].thumbURL);
-                        thumboImgContainer.appendChild(thumbImg);
-                        thumboImgContainer.setAttribute("class", "thumbImgContainer");
+                        thumbImgContainer.appendChild(thumbImg);
+                        thumbImgContainer.setAttribute("class", "thumbImgContainer");
                         thumbImg.setAttribute("class", "thumbImg");
                         thumbImg.setAttribute("id", "thumbImg" + counter++);
+                        
+                        var thumbImgDiv = document.createElement("div");
+                        thumbImgDiv.setAttribute("id", "thumbImgDiv");
+                        thumbImgContainer.appendChild(thumbImgDiv);
+                        thumbImgDiv.appendChild(thumbImg);
+                        thumbImgDiv.style.width = that.imgWidth + 10 +"px";
+                        thumbImgDiv.style.height = that.imgHeight + 10 +"px";
 
                         thumbImg.onclick = function(x) { 
                         
@@ -53,6 +75,7 @@
                             var main = document.getElementById("main");
                             main.style.backgroundImage = "url(" + setBackground + ")";
                             console.log(URLimg);
+                            resetBackgroundCount = 0;
                         };
                     }
                 }
@@ -65,14 +88,22 @@
         header.appendChild(cancelButton);
         header.appendChild(resetBackground);
         popup.appendChild(header);
-        popup.appendChild(thumboImgContainer);
+        popup.appendChild(thumbImgContainer);
         popup.appendChild(footer);
         body.appendChild(popup);
         body.insertBefore(body.firstChild);
         
         resetBackground.onclick = function() { 
+            
+            if(resetBackgroundCount > 0){
+                return;
+            }
+            else{
             that.main = document.getElementById("main");
             that.main.style.backgroundImage = "url('img/background.jpg')";
+            resetBackgroundCount = 1;
+            }
+            resetBackgroundCount++;
         };
         cancelButton.onclick = function() { 
             popup.parentNode.removeChild(popup);
@@ -82,6 +113,7 @@
             
    clickButton: function() {
             var that = this;
+           
             var Gallery = document.getElementById("gallery");
             Gallery.addEventListener("click", function() {
                 if (that.count !== 0) {
