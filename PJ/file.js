@@ -15,10 +15,11 @@
         var regularSizeWindow = document.createElement("regularSizeWindow");
         var enlargeWindow = document.createElement("enlargeWindow");
         var loadImg = document.createElement("img");
+        var loadComplete = document.createElement("img");
         var resetBackgroundCount = 1;
         var counter = 0;
         
-        
+        loadComplete.className = "loadComplete";
         cancelButton.className = "cancelButton";
         resetBackground.className = "resetBackground";
         smallSizeWindow.className = "smallSizeWindow";
@@ -80,6 +81,8 @@
                         };
                     }clearTimeout(time); 
                     footer.removeChild(loadImg);
+                    loadComplete.src="img/loadingComplete.png";
+                    footer.appendChild(loadComplete);
                 }   
             }  
         };
@@ -147,14 +150,22 @@
             
    clickButton: function() {
             var that = this;
-           
-            var Gallery = document.getElementById("gallery");
-            Gallery.addEventListener("click", function() {
+            var menu = document.getElementById("menu");
+            menu.addEventListener("click", function(e) {
+                var target = e.target;
+                console.log(target);
                 if (that.count !== 0) {
                     return;
                 }
-                that.count++;
-                that.popupWindow();
+                if (target.id === "galleryIcon"){
+                    that.popupWindow();
+                    
+                }
+                if (target.id === "rssIcon"){
+                    rssPopupWindow();
+                }
+                 that.count++;
+                
             },false);
         }
     };
