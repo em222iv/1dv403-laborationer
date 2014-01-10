@@ -1,8 +1,7 @@
 "use strict";
 
     var AJAX = {
-   
-    count : 0,
+
     popupWindow: function() { 
         var that = this;
         var body = document.getElementById("body");
@@ -63,7 +62,7 @@
                         thumbImg.setAttribute("id", "thumbImg" + counter++);
                         
                         var thumbImgDiv = document.createElement("div");
-                        thumbImgDiv.setAttribute("id", "thumbImgDiv");
+                        thumbImgDiv.setAttribute("class", "thumbImgDiv");
                         thumbImgContainer.appendChild(thumbImgDiv);
                         thumbImgDiv.appendChild(thumbImg);
                         thumbImgDiv.style.width = imgWidth + 10 +"px";
@@ -144,7 +143,7 @@
             popup.className = "popupWindow";
             console.log(popup);
             popup.parentNode.removeChild(popup);
-            that.count = 0;
+           
             };
         }, 
             
@@ -154,9 +153,7 @@
             menu.addEventListener("click", function(e) {
                 var target = e.target;
                 console.log(target);
-                if (that.count !== 0) {
-                    return;
-                }
+              
                 if (target.id === "galleryIcon"){
                     that.popupWindow();
                     
@@ -164,7 +161,7 @@
                 if (target.id === "rssIcon"){
                     rssPopupWindow();
                 }
-                 that.count++;
+                 
                 
             },false);
         }
