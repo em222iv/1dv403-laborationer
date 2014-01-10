@@ -140,7 +140,7 @@
         };
        
         cancelButton.onclick = function() { 
-            popup.className = "popupWindow";
+          
             console.log(popup);
             popup.parentNode.removeChild(popup);
            
@@ -156,13 +156,15 @@
               
                 if (target.id === "galleryIcon"){
                     that.popupWindow();
-                    
                 }
                 if (target.id === "rssIcon"){
                     rssPopupWindow();
                 }
-                 
-                
+                if (target.id === "memoryIcon"){
+                    new Memory().init(4, 4);
+    
+                }
+
             },false);
         }
     };
