@@ -66,7 +66,7 @@ html {
 .popupWindow:hover {
     box-shadow: 3px 0 20px 5px rgba(30, 20, 24, 0.6);
 }
-popupHeader {
+.popupHeader {
     background-color: rgba(100, 81, 60, 0.8);
     width:100%;
     height:30px;
@@ -75,12 +75,11 @@ popupHeader {
     border-top-right-radius:10px;
   
 }
-popupFooter {
+.popupFooter {
     background-repeat:repeat-y;
     background-color: rgba(100, 81, 60, 0.8);
     width:100%;
     height:25px;
-
     float:left;
     border-bottom-left-radius:10px;
     border-bottom-right-radius:10px;
@@ -108,7 +107,7 @@ button:hover {
 }
 .resetBackground:hover {
  cursor: pointer;
- background-image:url('img/revert2.png');
+ -webkit-filter: invert(100%);  
 }
 .smallSizeWindow {
     display:block;
@@ -121,7 +120,7 @@ button:hover {
     border-radius:3px;
 }
 .smallSizeWindow:hover {
-    background-image:url('img/minWindow2.png');
+   -webkit-filter: invert(100%);  
      cursor: pointer;
    
 }
@@ -145,8 +144,11 @@ button:hover {
     height:17px;
     border-radius:3px;
 }
+.regularRssSizeWindow:hover {
+    -webkit-filter: invert(100%);  
+}
 .regularSizeWindow:hover {
-    background-image:url('img/regularSize1.png');
+    -webkit-filter: invert(100%);  
      cursor: pointer;
 }
 .enlargeWindow {
@@ -170,8 +172,11 @@ button:hover {
     border-radius:3px;
 }
 .enlargeWindow:hover {
-    background-image:url('img/enlargeWindow1.png');
+    -webkit-filter: invert(100%);  
      cursor: pointer;
+}
+.enlargeRssWindow:hover {
+   -webkit-filter: invert(100%);  
 }
 .cancelButton {
     display:block;
@@ -179,13 +184,33 @@ button:hover {
     margin-left: 5px;
     margin-bottom:-20px;
     background-image:url('img/exit2.png');
-    width:22px;
-    height:22px;
+    width:21px;
+    height:21px;
     border-radius:15px;
 }
 .cancelButton:hover {
-    background-image:url('img/exit3.png');
-  
+    -webkit-filter: invert(100%);  
+}
+.textNode {
+    color:red;
+    float:right;
+    margin:4px;
+    
+}
+.memoryTextNode {
+    size:1em;
+    background-color: rgba(128,128,02);
+    color:black;
+    float:right;
+    margin:4px;
+    border:2px solid black;
+    border-radius:8px;
+   
+}
+.memoryTextNode:hover {
+    cursor:pointer;
+   border:2px solid #C0C0C0;
+    
 }
 .thumbImg {
     margin-top:5px;
@@ -250,14 +275,12 @@ h2 {
     color:white;
 }
 .rssFeed > p {
-  
-    margin:10px;
     float:left;
     text-align:center;
     position:relative;
     top:-20px;
     color:white;
-    
+
 }
 .rssFeed > p > img {
     left:20px;

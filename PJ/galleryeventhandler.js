@@ -1,23 +1,27 @@
 "use strict";
 
-    var AJAX = {
+var AJAX = {
 
     popupWindow: function() { 
         var that = this;
         var body = document.getElementById("body");
         var popup = document.createElement("div");
-        var header = document.createElement("popupHeader");
-        var footer = document.createElement("popupFooter");
+        var header = document.createElement("div");
+        var footer = document.createElement("div");
         var cancelButton = document.createElement("button");
-        var resetBackground = document.createElement("resetButton");
-        var smallSizeWindow = document.createElement("smallSizeWindow");
-        var regularSizeWindow = document.createElement("regularSizeWindow");
-        var enlargeWindow = document.createElement("enlargeWindow");
+        var resetBackground = document.createElement("div");
+        var smallSizeWindow = document.createElement("div");
+        var regularSizeWindow = document.createElement("div");
+        var enlargeWindow = document.createElement("div");
         var loadImg = document.createElement("img");
         var loadComplete = document.createElement("img");
+        var headerText = document.createTextNode("Reset");
+        var headertextDiv = document.createElement("div");
         var resetBackgroundCount = 1;
         var counter = 0;
-        
+ 
+        header.className = "popupHeader"; 
+        footer.className = "popupFooter";
         loadComplete.className = "loadComplete";
         cancelButton.className = "cancelButton";
         resetBackground.className = "resetBackground";
@@ -25,6 +29,7 @@
         regularSizeWindow.className = "regularSizeWindow";
         enlargeWindow.className = "enlargeWindow";
         popup.className = "popupWindow";
+        headertextDiv.className = "textNode";
      
         var time = setTimeout(function(){
              
@@ -40,8 +45,7 @@
         xhr.onreadystatechange = function() {
             if(xhr.readyState === 4) {
                 if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                    console.log(xhr.responseText);
-                   
+
                     var jsonImageReciever = JSON.parse(xhr.responseText);
                     var imgWidth = 0;
                     var imgHeight = 0;
@@ -69,12 +73,11 @@
                         thumbImgDiv.style.height = imgHeight + 10 +"px";
 
                         thumbImg.onclick = function(x) { 
-                        
                             var URLimg = x.target.id.replace("thumbImg", ""); 
-                            //var URLimg = document.getElementById("thumbImg", counter); 
                             var setBackground = jsonImageReciever[URLimg].URL;
                             var main = document.getElementById("main");
                             main.style.backgroundImage = "url(" + setBackground + ")";
+                        
                        
                             resetBackgroundCount = 0;
                         };
@@ -90,6 +93,8 @@
         
         header.appendChild(cancelButton);
         header.appendChild(resetBackground);
+        headertextDiv.appendChild(headerText);
+        header.appendChild(headertextDiv);
         header.appendChild(enlargeWindow);
         header.appendChild(regularSizeWindow);
         header.appendChild(smallSizeWindow);
@@ -126,7 +131,6 @@
             thumbImgContainer.style.width = "565px";
         
         }; 
-     
         resetBackground.onclick = function() { 
             if(resetBackgroundCount > 0){
                 return;
@@ -140,14 +144,13 @@
         };
        
         cancelButton.onclick = function() { 
-          
             console.log(popup);
             popup.parentNode.removeChild(popup);
            
             };
         }, 
             
-   clickButton: function() {
+    clickButton: function() {
             var that = this;
             var menu = document.getElementById("menu");
             menu.addEventListener("click", function(e) {
@@ -162,9 +165,7 @@
                 }
                 if (target.id === "memoryIcon"){
                     new Memory().init(4, 4);
-    
                 }
-
             },false);
         }
     };

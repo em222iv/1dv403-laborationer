@@ -1,38 +1,40 @@
 "use strict";
  
-    var Memory = function() { 
-        var clicks = 0;
-        var tries = 0;
-        var curCard = null;
-        var prevCard = null;
-        
-        this.init = function(rows, cols) {
-       
-        var randomized = RandomGenerator.getPictureArray(rows, cols);
-        
-        this.displayMemory(rows, cols, randomized);
-        
-    	};
-        this.displayMemory =  function(rows, cols, randomized){
-            
+var Memory = function() { 
+    var clicks = 0;
+    var tries = 0;
+    var curCard = null;
+    var prevCard = null;
+    
+    this.init = function(rows, cols) {
+   
+    var randomized = RandomGenerator.getPictureArray(rows, cols);
+    
+    this.displayMemory(rows, cols, randomized);
+    
+	};
+    this.displayMemory =  function(rows, cols, randomized){
         var memoryBody = document.getElementById("body");
         var memoryPopup = document.createElement("div");
-        var memoryHeader = document.createElement("popupHeader");
-        var memoryFooter = document.createElement("popupFooter");
+        var memoryHeader = document.createElement("div");
+        var memoryFooter = document.createElement("div");
         var memoryCancelButton = document.createElement("button");
         var memoryContainer = document.createElement("div");
-        var enlargememoryWindow = document.createElement("enlargeRssWindow");
-        var regularmemorySizeWindow = document.createElement("regularRssSizeWindow");
-        var smallmemorySizeWindow = document.createElement("smallSizeWindow");
+        var enlargememoryWindow = document.createElement("div");
+        var regularmemorySizeWindow = document.createElement("div");
+        var memoryHeaderText = document.createTextNode("Meme-memory");
+        var memoryHeadertextDiv = document.createElement("div");
         
+        memoryHeader.className = "popupHeader";
+        memoryFooter.className = "popupHeader";
         memoryCancelButton.className = "cancelButton";
         memoryContainer.className = "memoryContainer";
         memoryPopup.className = "popupWindow1";
         memoryCancelButton.setAttribute("click");
         enlargememoryWindow.className = "enlargeRssWindow";
         regularmemorySizeWindow.className = "regularRssSizeWindow";
-        smallmemorySizeWindow.className = "smallSizeWindow";
-
+        memoryHeadertextDiv.className = "memoryTextNode";
+        
         var table = document.createElement("table");
         var count = 0;
         var that = this;
@@ -50,13 +52,6 @@
             }
             table.appendChild(tr);
         }
-        
-       smallmemorySizeWindow.onclick = function() { 
-            memoryPopup.style.height = "250px";
-            memoryPopup.style.width = "250px";
-            memoryContainer.style.height = "195px";
-            memoryContainer.style.width = "245px";
-        }; 
 
         regularmemorySizeWindow.onclick = function() { 
             memoryPopup.style.width = "550px";
@@ -70,7 +65,6 @@
             memoryPopup.style.width = "620px";
             memoryContainer.style.height = "345px";
             memoryContainer.style.width = "580px";
-            
         }; 
         
         memoryCancelButton.onclick = function() { 
@@ -78,6 +72,8 @@
             memoryPopup.parentNode.removeChild(memoryPopup);
         };
         
+        memoryHeadertextDiv.appendChild(memoryHeaderText);
+        memoryHeader.appendChild(memoryHeadertextDiv);
         memoryHeader.appendChild(enlargememoryWindow);
         memoryHeader.appendChild(regularmemorySizeWindow);
         memoryHeader.appendChild(memoryCancelButton);
