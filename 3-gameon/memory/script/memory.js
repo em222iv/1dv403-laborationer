@@ -2,10 +2,10 @@
  
     var Memory = { 
         clicks : 0,
-        tries : 0,
+        tries : 1,
         curCard : null,
         prevCard : null,
-        init : function(rows, cols) {
+    init : function(rows, cols) {
        
         var randomized = RandomGenerator.getPictureArray(rows, cols);
         
@@ -19,15 +19,17 @@
     var count = 0;
     var that = this;
     
-   
+   //för varje tr tag så loopas det in ett kort i varje
     for(var i = 0; i < rows; i++){
         var tr = document.createElement("tr");
        
         for(var n = 0; n < cols; n++){
-            
+            //skickar med displaymemory referenser
+        
             var Card = new Constructor(randomized[count], that);
+            //pushar in Card i arrray
             randomized.push(Card); 
-            
+            //allting appendas in i main
             tr.appendChild(Card.getTd());
             count++;
         }
@@ -36,12 +38,13 @@
     main.appendChild(table);
 },
 flipCard : function(Card) {
+  var that = this;
     if(this.prevCard !== null && this.curCard !== null) {
             return;
     }
     this.clicks+=1; 
-    var that = this;
     console.log(Card.getId());
+  
     if(this.clicks === 1){
         this.prevCard = Card;
         Card.getImg();
@@ -70,7 +73,5 @@ flipCard : function(Card) {
 },
 };
 window.onload = function(){
-    Memory.init(4,4);
-    Memory.init(4,4);
     Memory.init(4,4);
 };

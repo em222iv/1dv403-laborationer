@@ -22,11 +22,6 @@ var makePerson = function(persArr){
         return prevName + ", " + name;
     });
 
-    console.log(personNames);
-    
-
-    //personObj.names = personNames;
-    
     //Skapar en array som tar ut alla age från persArr arrayen
     personAges = persArr.map(function(person){
         return person.age;
@@ -35,7 +30,7 @@ var makePerson = function(persArr){
     personObj.minAge = personAges.reduce(function(prevAge, age){
         return Math.min(prevAge, age);
     });
-    // - : - hösta
+    // - : - högsta
     personObj.maxAge = personAges.reduce(function(prevAge, age){
         return Math.max(prevAge, age);
     });
@@ -45,7 +40,6 @@ var makePerson = function(persArr){
     });
     //skickar in averageAge i objektet som fått fram medelåldern
     personObj.averageAge = Math.round(totalSum/personAges.length);
-    //console.log(personAges); 
     
     return personObj;
     

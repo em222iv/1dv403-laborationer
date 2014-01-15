@@ -11,26 +11,26 @@ function Constructor(Card, memory){
         var that = this;
         a.href = "#";
         
-    this.getTd = function() {
+    that.getTd = function() {
         return td;
     };
-    
-    this.getId = function() {
+    // vilket kort man väljer
+    that.getId = function() {
         return Card;
     };
     
-    this.getImg = function() {
+    that.getImg = function() {
         a.onclick = null;
         return img.src = "pics/" + Card + ".png";
             
         };
-        
+    //skickar med hela objektet
     a.onclick = function() {
         memory.flipCard(that);
         
     };
     
-    this.reset = function() {
+    that.reset = function() {
         a.onclick = function() {
         memory.flipCard(that);
         };

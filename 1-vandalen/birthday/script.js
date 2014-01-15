@@ -6,10 +6,11 @@ window.onload = function(){
 	var CurrentTime = new Date();
     //delar arayens element mellan -
     var array = date.split('-');
-    
-    //skapar ett date med det rätta formatet
+
+    //byter plats på månad och dag
     var birthdayArray = new Date(CurrentTime.getFullYear(), array[1] - 1, array[2]);
     
+    //om du redan har fyllt år så plussas getFullyear + 1
     if(birthdayArray.getTime() < CurrentTime.getTime() && birthdayArray.getDate() !== 
      CurrentTime.getDate())
     {

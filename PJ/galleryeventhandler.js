@@ -102,11 +102,9 @@ var AJAX = {
         popup.appendChild(thumbImgContainer);
         popup.appendChild(footer);
         body.appendChild(popup);
-        body.insertBefore(body.firstChild);
          
         smallSizeWindow.onclick = function() { 
             popup.className = "popupWindow";
-            console.log(popup);
             popup.style.height = "250px";
             popup.style.width = "250px";
             thumbImgContainer.style.height = "195px";
@@ -115,7 +113,6 @@ var AJAX = {
         }; 
         regularSizeWindow.onclick = function() { 
             popup.className = "popupWindow";
-            console.log(popup);
             popup.style.height = "400px";
             popup.style.width = "365px";
             thumbImgContainer.style.height = "345px";
@@ -124,7 +121,6 @@ var AJAX = {
         }; 
         enlargeWindow.onclick = function() { 
             popup.className = "popupWindow";
-            console.log(popup);
             popup.style.height = "450px";
             popup.style.width = "570px";
             thumbImgContainer.style.height = "345px";
@@ -144,7 +140,6 @@ var AJAX = {
         };
        
         cancelButton.onclick = function() { 
-            console.log(popup);
             popup.parentNode.removeChild(popup);
            
             };
@@ -155,8 +150,6 @@ var AJAX = {
             var menu = document.getElementById("menu");
             menu.addEventListener("click", function(e) {
                 var target = e.target;
-                console.log(target);
-              
                 if (target.id === "galleryIcon"){
                     that.popupWindow();
                 }

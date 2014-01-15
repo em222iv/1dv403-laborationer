@@ -28,7 +28,6 @@ var rssPopupWindow = function() {
         if(xhr.readyState === 4) {
             if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
                  
-               console.log(xhr.responseText);
                 var rssReciever = xhr.responseText;
                     rssReciever.className = "rssReciever";
                     rssContainer.innerHTML = rssReciever;
@@ -37,7 +36,6 @@ var rssPopupWindow = function() {
                     
                     var eachFeed = rssReciever[i].rss_title;
                         eachFeed.className = "eachFeed";
-                        console.log(eachFeed);
                 }
             }
         }   
@@ -75,7 +73,6 @@ var rssPopupWindow = function() {
     }; 
     
     rssCancelButton.onclick = function() { 
-        console.log(rssPopup);
         rssPopup.parentNode.removeChild(rssPopup);
         
         };

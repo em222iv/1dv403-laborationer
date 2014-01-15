@@ -7,12 +7,10 @@ var Memory = function() {
     var prevCard = null;
     
     this.init = function(rows, cols) {
-   
     var randomized = RandomGenerator.getPictureArray(rows, cols);
-    
     this.displayMemory(rows, cols, randomized);
-    
 	};
+	
     this.displayMemory =  function(rows, cols, randomized){
         var memoryBody = document.getElementById("body");
         var memoryPopup = document.createElement("div");
@@ -68,7 +66,6 @@ var Memory = function() {
         }; 
         
         memoryCancelButton.onclick = function() { 
-            console.log(memoryPopup);
             memoryPopup.parentNode.removeChild(memoryPopup);
         };
         
@@ -89,8 +86,6 @@ var Memory = function() {
                 return;
         }
         clicks+=1; 
-   
-        console.log(Card.getId());
         if(clicks === 1){
             prevCard = Card;
             Card.getImg();

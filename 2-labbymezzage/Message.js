@@ -1,7 +1,5 @@
 "use strict";
 
-
-
 	var Message = function(message, date) {
 	
 	this.getText = function() {

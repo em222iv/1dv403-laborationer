@@ -17,7 +17,7 @@
         
         var nameCheck=document.getElementById("name");
         nameCheck.onblur = function() {
-            
+                //om det är tomt i förnamnsurtan så ges ett errormessage
             if(nameCheck.value === null || nameCheck.value === "") {
                 var errormessage=document.getElementById("errormessage");
                 
@@ -32,7 +32,6 @@
                 }
             }
             else{
-
                 var getErrorMsg = document.getElementById("error");
                 getErrorMsg.parentNode.removeChild(getErrorMsg);
                 this.exist = null;
@@ -42,16 +41,14 @@
         var surNameCheck=document.getElementById("surname");
         surNameCheck.onblur = function(){
             
-    
             if(surNameCheck.value === null || surNameCheck.value === "") {
             var errormessage1=document.getElementById("errormessage1");
                 
                 if(!this.exist){
                     var p = document.createElement("p");
-                    
                     var errorMessage1=document.createTextNode("FEL! skriv ditt efternamn");
                     p.id = "error1";
-                    p.className = "empty"
+                    p.className = "empty";
                     p.appendChild(errorMessage1);
                     errormessage1.appendChild(p);
                     this.exist = true;
@@ -78,12 +75,6 @@
             this.exist = null;
         }
         else if(reg.test(post) === false) {
-    
-        console.log(reg.test(post));
-               // post = postCodeCheck.replace("SE","");
-                //postCodeCheck = postCodeCheck.replace(" ", "");
-                
-                //(/^\d{3}\d{2}$/) || postCodeCheck.value.match(/^[SE]+\d{5}$/)|| postCodeCheck.value.match(/^[SE]+\d{5}$/)
         
         var errormessage2=document.getElementById("errormessage2");
                 
@@ -130,6 +121,7 @@
             };
         },
         onbutton: function() {
+           
             var main = document.getElementById("main");
             var divbutton = document.createElement("div");
             var dim = document.createElement("div");
@@ -137,27 +129,19 @@
             var popupCancelButton = document.createElement("button");
             var buttonText = document.createTextNode("Bekräfta köp");
             var buttonCancelText = document.createTextNode("Avbryt köp");
-            
-            
             var form = document.getElementById("formname");
             var fname = document.createTextNode(form.elements.name.value);
             var sname = document.createTextNode(form.elements.surname.value);
             var postalcodename = document.createTextNode(form.elements.postalcode.value);
             var emailname = document.createTextNode(form.elements.email.value);
-            
             var selectoption = document.getElementById("select");
             
-            
-            console.log(fname,sname,postalcodename,emailname);
-    
-            console.log(option);
-            
-            dim.setAttribute("id", "db");
-            divbutton.setAttribute("id", "myModal");
-            divbutton.setAttribute("class", "reveal-modal");
+                dim.setAttribute("id", "db");
+                divbutton.setAttribute("id", "myModal");
+                divbutton.setAttribute("class", "reveal-modal");
             
             var popupclass = divbutton.className;
-            divbutton.setAttribute("class", popupclass+" displayshow");
+                divbutton.setAttribute("class", popupclass+" displayshow");
             
             var table = document.createElement("table");
             var tagName = document.getElementsByTagName("input");
@@ -166,18 +150,18 @@
         for (var i = 0; i < tagName.length; i++) {
             var input = tagName[i].getAttribute("name");
             var inputValue = tagName[i].value;
-            
+ 
             var tr = document.createElement("tr");
             var td = document.createElement("td");
             var tdI = document.createElement("td");
             var text = document.createTextNode(input);
             var textValue = document.createTextNode(inputValue);
-        
-            td.appendChild(text);
-            tdI.appendChild(textValue);
-            tr.appendChild(td);
-            tr.appendChild(tdI);
-            table.appendChild(tr);
+            
+                td.appendChild(text);
+                tdI.appendChild(textValue);
+                tr.appendChild(td);
+                tr.appendChild(tdI);
+                table.appendChild(tr);
         }
         var select = document.getElementById("select");
         var selectName = select.getAttribute("name");
@@ -194,7 +178,6 @@
         table.appendChild(trSecond);
         divbutton.appendChild(table);
         
-     
         divbutton.appendChild(popupButton);
         divbutton.appendChild(popupCancelButton);
   
@@ -220,9 +203,7 @@
         }, false);
 
         },
-        dim: function() {
-            document.getElementById("button");
-        },
+     
         submit1 : function(){
         
             var that = this;
@@ -232,8 +213,6 @@
                 console.log(that.errorArray);
                 if(that.errorArray.length === 0){
                     that.onbutton();
-                    that.dim();
-                    
                 }
                 
             },false);
